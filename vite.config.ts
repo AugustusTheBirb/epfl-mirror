@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig(({ mode }) => {
-  const base = mode === "production" ? "/epfl/" : "/"; 
+  const base = process.env.NETLIFY ? '/' : mode === 'production' ? '/epfl/' : '/';
   return {
     base,
     plugins: [react()],
