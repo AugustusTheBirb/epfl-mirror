@@ -1,0 +1,312 @@
+/* ==========================
+   Attribution Project Description Styles (Matching Project Description)
+   ========================== */
+/* Match the compact style from the Team hero overlay */
+
+.attribution-hero-overlay,
+.hardware-hero-overlay {
+  background: rgba(5, 86, 93, 0.756);
+  padding: 2rem 1rem;              /* smaller padding */
+  border-radius: 1rem;
+  max-width: 600px;                /* narrower */
+  margin: 0 auto;                  /* center it */
+  text-align: center;
+  color: #FAFAF6;
+  
+}
+
+.proof-container{
+  margin-top: 2.5rem;
+}
+
+/* Card description text color (front and back) */
+.projectdescrip-card-flip-front p,
+.projectdescrip-card-flip-back figcaption {
+  color: #fff;
+}
+
+/* Hero description text at the top */
+.projectdescrip-description {
+  color: #fff;
+}
+
+.projectdescrip-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+  margin: 2rem 0;
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+.projectdescrip-card-flip {
+  background: none;
+  border: none;
+  perspective: 1200px;
+  width: 250px;
+  min-width: 220px;
+  max-width: 250px;
+  height: 300px;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.projectdescrip-card-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(.4,1.5,.5,1);
+  transform-style: preserve-3d;
+}
+
+.projectdescrip-card-flip.selected .projectdescrip-card-flip-inner {
+  transform: rotateY(180deg);
+  z-index: 2;
+}
+
+.projectdescrip-card-flip-front, .projectdescrip-card-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-light-blue);
+  padding: 1rem 0.8rem;
+  text-align: center;
+}
+
+.projectdescrip-card-flip-back {
+  transform: rotateY(180deg);
+  background: #ffffff;
+  color: var(--color-dark-blue);
+  z-index: 3;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+
+.projectdescrip-card-label {
+  padding: 1rem 0.2rem;
+  color: var(--color-dark-blue);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  background: rgba(255,255,255,0.7);
+  width: 100%;
+}
+
+.projectdescrip-img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 1rem;
+  margin: 1.2rem 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+  object-fit: cover;
+}
+
+/* ==========================
+   Attribution Specific Styles
+   ========================== */
+
+.attribution-detailed-section {
+  background: linear-gradient(135deg, var(--color-light-blue) 0%, #005a5a 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+  border: none;
+}
+
+.attribution-detailed-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+}
+
+.attribution-detailed-section h3 {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.attribution-detailed-section p {
+  color: white;
+}
+
+.attribution-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.attribution-card {
+  background: linear-gradient(135deg, var(--color-light-blue) 0%, #005a5a 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: none;
+}
+
+.attribution-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+}
+
+.attribution-card h4 {
+  color: white;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.attribution-card p {
+  margin: 0.5rem 0;
+  color: white;
+}
+
+.attribution-card strong {
+  color: var(--color-light-orange);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.attribution-org-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.attribution-org {
+  background: linear-gradient(135deg, var(--color-light-blue) 0%, #005a5a 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+  border: none;
+}
+
+.attribution-org:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+}
+
+.attribution-org h4 {
+  color: white;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.attribution-org p {
+  color: white;
+}
+
+.attribution-org em {
+  color: var(--color-light-orange);
+  font-style: italic;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.attribution-international-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.attribution-international-card {
+  background: linear-gradient(135deg, var(--color-light-blue) 0%, #005a5a 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+}
+
+.attribution-international-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+}
+
+.attribution-international-card h4 {
+  color: white;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.attribution-international-card strong {
+  color: var(--color-light-orange);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ==========================
+   Responsive Design
+   ========================== */
+
+@media (max-width: 768px) {
+  .attribution-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .attribution-international-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .attribution-detailed-section {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .projectdescrip-cards {
+    gap: 1rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    padding: 1rem 0.5rem;
+  }
+  
+  .projectdescrip-card-flip {
+    min-width: 250px;
+    width: 250px;
+  }
+}
+
+
+/* Add this to match the roster header style */
+.team-attribution .hardware-hero-overlay {
+  padding-top: 2.5rem;
+}
+
+.team-attribution .hardware-hero-overlay {
+  max-width: 600px;
+  padding: 2rem 1rem;
+  background: rgba(5, 86, 93, 0.756);
+  border-radius: 1rem;
+  margin: 0 auto;
+  text-align: center;
+  color: #FAFAF6;
+}

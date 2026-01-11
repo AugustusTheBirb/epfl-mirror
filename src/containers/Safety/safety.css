@@ -1,0 +1,13 @@
+.safety-container,
+.safety-container * {
+  font-family: var(--font-body, Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif) !important;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  letter-spacing: 0.01rem;
+}
+
+.safety-container h2{
+  font-family: var(--font-title, );
+  margin-top: 1.6rem;
+  color: var(--color-dark-orange);
+}

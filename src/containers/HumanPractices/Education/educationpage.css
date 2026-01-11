@@ -1,0 +1,635 @@
+/* ==========================
+   Education Page Styles (Based exactly on Project Description)
+   ========================== */
+
+/* Hero section background and layout - like Project Description */
+.education-hero {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  background-image: url('https://static.igem.wiki/teams/5590/assets-education/education-hero.webp');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-light-blue);
+}
+
+.education-overlay {
+  background: rgba(0, 114, 124, 0.7);
+  padding: 3rem 2rem;
+  max-width: 800px;
+  text-align: center;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+
+/* Hero description text at the top */
+.education-description {
+  color: #fff;
+}
+
+.education-hero .education-overlay h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.education-hero .education-overlay p {
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--color-dark-orange);
+  font-size: 1.5rem;
+  margin-bottom: 0.7rem;
+  font-weight: 700;
+}
+
+/* Layout wrapper: two-column section with sidebar - EXACTLY like Project Description */
+.education-section {
+  width: 100%;
+  margin: 0;
+  padding: 2.5rem 2rem;
+  box-sizing: border-box;
+  background-color: #000;
+}
+
+/* NEW wrapper that keeps sidebar + content aligned */
+.education-layout {
+  display: grid;
+  grid-template-columns: 320px 3fr;
+  gap: 3rem;
+  max-width: 1200px;  /* keeps it centered like Meetings page */
+  margin: 0 auto;
+  align-items: start;
+}
+
+
+/* Main content blocks - styled like Project Description but without sommaire */
+.education-main {
+  background: transparent;
+  border-radius: 1rem;
+  padding: 0; /* no extra padding */
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+  align-items: flex-start;
+  max-width: 1100px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.education-block {
+  background: transparent;
+  border-radius: 1rem;
+  padding: 2rem 0; /* respect section gutters; no extra horizontal offset */
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+  margin: 0 auto; /* center the constrained column within the right grid column */
+  align-items: flex-start; /* text flows from the left inside the constrained column */
+  max-width: 1100px; /* increase width so text occupies more space */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Chevron affordance for PDF toggles (match Wetlab look) */
+.pdf-toggle-button{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Default chevron (for posters, unchanged) */
+.wetlab-pdf-chevron {
+  display: inline-block;
+  font-size: 0.9rem;
+  margin-left: auto;
+  opacity: 0.85;
+  transition: transform 200ms ease, color 200ms ease, opacity 200ms ease;
+}
+
+/* Children's Book only */
+.book-chevron {
+  display: inline-block;
+  font-size: 0.9rem;
+  transition: transform 200ms ease, color 200ms ease, opacity 200ms ease;
+}
+
+.pdf-toggle-button[aria-pressed="true"] .book-chevron {
+  transform: rotate(90deg); /* open = down */
+  color: var(--color-dark-orange);
+}
+
+.pdf-toggle-button:hover .book-chevron {
+  color: var(--color-dark-orange);
+  opacity: 1;
+}
+
+.pdf-title {
+  color: var(--color-whitish);
+  transition: color 200ms ease;
+}
+
+.pdf-toggle-button:hover .pdf-title {
+  color: var(--color-dark-orange);
+}
+
+
+
+.education-block h2 {
+  color: var(--color-dark-orange);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.education-block h3 {
+  color: var(--color-dark-orange);
+  font-size: 1.5rem;
+  margin: 1.5rem 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.education-block p {
+  color: var(--color-text);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.education-block ul {
+  color: var(--color-text);
+  line-height: 1.7;
+  margin: 1rem 0 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.education-block li {
+  margin: 0.5rem 0;
+  color: var(--color-text);
+}
+
+.education-block strong, .education-block b {
+  color: var(--color-light-orange);
+  font-weight: 700;
+}
+
+.education-block em {
+  color: var(--color-light-orange);
+  font-style: italic;
+}
+
+/* Image styling - like Project Description */
+.education-img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 1rem;
+  margin: 1.2rem 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+  object-fit: cover;
+}
+
+/* Single image styling */
+.single-image {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.single-image img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+}
+
+.image-legend {
+  margin-top: 0.5rem;
+  color: var(--color-light-orange);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Carousel styling */
+.image-carousel {
+  margin: 2rem 0;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+}
+
+.carousel-caption {
+  text-align: center;
+  margin-top: 0.5rem;
+  color: var(--color-light-orange);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Hero section styling for existing PageHead */
+.drone-hero {
+  position: relative;
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drone-overlay {
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.drone-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.drone-description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: white;
+}
+
+/* Responsive - with sidebar layout */
+@media (max-width: 768px) {
+  .education-hero {
+    height: 40vh;
+  }
+  
+  .education-hero .education-overlay h1 {
+    font-size: 2rem;
+  }
+  
+  .education-section {
+    grid-template-columns: 1fr; /* collapse to single column on small screens */
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .education-main {
+    padding: 0;
+  }
+  
+  .education-block {
+    padding: 1.2rem 0.5rem;
+  }
+  
+  .drone-title {
+    font-size: 2rem;
+  }
+}
+/* New Enhanced Carousel Styles */
+.carousel-container-new {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem 0;
+  padding: 2rem 0;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel-wrapper-new {
+  flex: 1;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 550px;
+  padding: 0 2rem;
+}
+
+.carousel-track-new {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.carousel-slide-new {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  transform: scale(0.75);
+  transition: all 0.5s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.carousel-slide-new.active {
+  opacity: 1;
+  transform: scale(1);
+  cursor: default;
+}
+
+.carousel-slide-new img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+
+.carousel-slide-new.active img {
+  max-width: 450px;
+  box-shadow: 0 12px 32px rgba(255, 107, 53, 0.4);
+}
+
+.carousel-slide-new:not(.active):hover img {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
+}
+
+.poster-caption-new {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--color-light-orange);
+  font-style: italic;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+.carousel-slide-new.active .poster-caption-new {
+  color: var(--color-dark-orange);
+  font-size: 1.15rem;
+  margin-top: 1.5rem;
+}
+
+.carousel-btn-new {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 107, 53, 0.8);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  border-radius: 50%;
+  z-index: 10;
+  transition: all 0.3s ease;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn-new:hover:not(:disabled) {
+  background: var(--color-dark-orange);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn-new:disabled {
+  cursor: not-allowed;
+  background: rgba(100, 100, 100, 0.3);
+}
+
+.carousel-btn-new.prev {
+  left: 0;
+}
+
+.carousel-btn-new.next {
+  right: 0;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0 3rem 0;
+}
+
+.carousel-indicators .indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--color-light-orange);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-indicators .indicator:hover {
+  background: var(--color-light-orange);
+  transform: scale(1.2);
+}
+
+.carousel-indicators .indicator.active {
+  background: var(--color-dark-orange);
+  border-color: var(--color-dark-orange);
+  width: 32px;
+  border-radius: 6px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel-wrapper-new {
+    padding: 0 2rem;
+  }
+  
+  .carousel-btn-new {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+  
+  .carousel-slide-new {
+    padding: 0 1rem;
+  }
+  
+  .carousel-slide-new img {
+    max-width: 100%;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel-container-new {
+    margin: 2rem 0;
+    padding: 1rem 0;
+  }
+  
+  .carousel-wrapper-new {
+    padding: 0 0.5rem;
+    min-height: 350px;
+  }
+  
+  .carousel-track-new {
+    gap: 1rem;
+  }
+  
+  .carousel-slide-new {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  
+  .carousel-slide-new.active {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .carousel-slide-new img {
+    max-width: 180px;
+  }
+  
+  .carousel-slide-new.active img {
+    max-width: 280px;
+  }
+  
+  .poster-caption-new {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+  
+  .carousel-slide-new.active .poster-caption-new {
+    font-size: 0.95rem;
+    margin-top: 1rem;
+  }
+  
+  .carousel-indicators {
+    margin-top: 1.5rem;
+    gap: 0.6rem;
+  }
+  
+  .carousel-indicators .indicator {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .carousel-indicators .indicator.active {
+    width: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-wrapper-new {
+    min-height: 300px;
+  }
+  
+  .carousel-slide-new {
+    transform: scale(0.5);
+  }
+  
+  .carousel-slide-new img {
+    max-width: 140px;
+  }
+  
+  .carousel-slide-new.active img {
+    max-width: 220px;
+  }
+  
+  .poster-caption-new {
+    font-size: 0.75rem;
+  }
+  
+  .carousel-slide-new.active .poster-caption-new {
+    font-size: 0.85rem;
+  }
+}
+
+/* Fix PDF toggle and iframe behavior on small devices */
+@media (max-width: 768px) {
+  .pdf-toggle-button {
+    position: relative;
+    z-index: 10; /* ensures it’s clickable above overlapping elements */
+  }
+
+  .interactive-link iframe {
+    width: 100% !important;
+    height: 70vh !important;
+    display: block;
+    position: relative;
+    z-index: 5;
+  }
+
+  /* Prevent parent containers from clipping the iframe */
+  .proof-section,
+  .proof-block,
+  main.hardware-main {
+    overflow: visible !important;
+  }
+
+  /* Allow expanded PDF to push content down properly */
+  .interactive-link {
+    display: block;
+    overflow: visible;
+  }
+}
+
+/* Mobile arrows for posters carousel */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: var(--color-light-orange);
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 1.8rem;
+  line-height: 1;
+  display: none; /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s ease;
+}
+
+.carousel-arrow:hover {
+  background: rgba(0,0,0,0.6);
+}
+
+.carousel-arrow.left {
+  left: 8px;
+}
+
+.carousel-arrow.right {
+  right: 8px;
+}
+
+@media (max-width: 768px) {
+  .carousel-arrow {
+    display: flex; /* show only on small screens */
+  }
+}
+
+
+

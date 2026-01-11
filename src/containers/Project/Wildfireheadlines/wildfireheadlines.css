@@ -1,0 +1,156 @@
+/* Import contribution styles as base */
+@import "../Contribution/contribution.css";
+@import "../Proofofconcept/proofofconcept.css";
+@import "../../../components/Sidebar/sidebar.css";
+
+
+
+
+/* Satellite Image Containers */
+.satellite-image-container {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.satellite-img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.satellite-comparison {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comparison-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 1rem;
+}
+
+.comparison-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-caption {
+  text-align: center;
+  font-size: 0.95rem;
+  max-width: 900px;
+  line-height: 1.6;
+  padding: 0 1rem;
+  color: white;
+}
+
+
+.source-link {
+  color: var(--color-dark-orange);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.source-link:hover {
+  text-decoration: underline;
+  color: var(--color-dark-orange);
+}
+
+/* Chart Container */
+.chart-container {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.chart-img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Override proof-block styling for better spacing */
+.proof-block h2 {
+  color: var(--color-dark-orange);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  
+}
+
+.proof-block h3 {
+  
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  text-decoration: underline;
+}
+
+.proof-block p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  
+}
+
+.proof-block ul {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.proof-block ul li {
+  margin-bottom: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-head-title {
+    font-size: 2rem;
+  }
+
+  .page-head-subtitle {
+    font-size: 1rem;
+  }
+
+  .comparison-images {
+    grid-template-columns: 1fr;
+  }
+
+  .hardware-layout {
+    flex-direction: column;
+  }
+
+  .education-sidebar {
+    width: 100%;
+    position: static;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Additional emphasis styling */
+.proof-block strong {
+  color: var(--color-dark-orange);
+  font-weight: 600;
+}
+
+/* Ensure links in lists are visible */
+.proof-block ul li a {
+  display: inline-block;
+  margin-top: 0.3rem;
+}

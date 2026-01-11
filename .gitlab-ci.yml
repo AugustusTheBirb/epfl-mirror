@@ -1,0 +1,29 @@
+image: node:20.19.0-alpine  
+
+pages:
+  stage: build
+
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/           
+      - .yarn/cache             
+    policy: pull-push
+
+  before_script:
+    - yarn cache clean          
+    - yarn install --frozen-lockfile --prefer-offline
+
+  script:
+    - yarn build
+    - mkdir -p public
+    - cp -a dist/. public/
+    - echo '/* /index.html 200' > public/_redirects
+    - cp public/index.html public/404.html
+
+  artifacts:
+    paths:
+      - public
+
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

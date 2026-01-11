@@ -1,0 +1,498 @@
+/* =========================================
+   Navbar.css (desktop + mobile via logo panel)
+   ========================================= */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- Desktop / default ---------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  align-items: flex-start;
+  padding-left: 0.5rem;
+  padding-right: 3.5rem;
+  padding-top: 0.8rem;
+  background: rgba(0, 114, 122, 0.341);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 10;
+  transition: height 0.3s ease;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+  padding: 0 2rem;
+  transition: height 0.3s ease;
+  gap: 2rem;
+  width: 100%;
+}
+
+.navbar.expanded {
+  height: 320px; /* Or as much as needed for dropdown */
+}
+
+/* Expand height when any dropdown is open (desktop) */
+.nav-item.dropdown:hover ~ .navbar-inner,
+.nav-item.dropdown:hover .navbar-inner {
+  height: 240px;
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(to top, transparent, rgba(0, 114, 122, 0.341));
+  z-index: 1;
+}
+
+.navbar-container { position: relative; width: 100%; }
+
+.logo-container {
+  height: 100%;
+  max-height: 80px;
+  display: flex;
+  align-items: center;
+  
+}
+
+.logo-link { display: block; height: 100%; }
+
+.logo { 
+  display: block;
+  height: 5.8rem;
+  max-height: 70%;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-list {
+  position: relative;
+  z-index: 5;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item { position: relative; }
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-light-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.nav-link:hover { 
+  color: rgba(0, 114, 122, 0.34); 
+}
+
+.dropdown-menu {
+  list-style: none;
+  margin: 0; /* was 10px; gap breaks hover */
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 100;
+  padding: 1rem 1rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* Hover logic for dropdowns (desktop) */
+.nav-item.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  display: flex;
+  
+}
+
+/* When hovering the dropdown, keep the parent highlighted */
+.nav-item.dropdown:hover > .nav-link {
+  color: var(--color-light-orange);
+}
+
+.dropdown-item a {
+  font-family: var(--font-body);
+  color: var(--color-light-blue);
+  font-size: 18px;
+  text-decoration: none;
+}
+.dropdown-item a:hover { 
+  color: var(--color-light-orange); 
+}
+
+/* style & font nav */
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.dropdown-item a {
+  font-family: var(--font-body);
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  
+}
+
+/* ---------- shared helpers ---------- */
+.desktop-only { display: block; }
+.mobile-only  { display: none; }
+
+/* Logo toggle (button) — used on mobile, safe on desktop too */
+.logo-toggle {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-left: auto;
+  cursor: pointer;
+  max-height: 48px;
+
+}
+.logo-toggle .logo { padding: 6px; border-radius: 8px; }
+.logo-toggle:focus-visible .logo {
+  outline: 2px solid var(--color-light-blue);
+  outline-offset: 2px;
+}
+
+
+/* Search bar container */
+.nav-search {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+
+/* === FINAL MOBILE  === */
+@media (max-width: 768px) {
+  /* show the button logo, hide desktop logo */
+  .desktop-only { display: none !important; }
+  .mobile-only  { display: inline-block !important; }
+
+  /* ensure the panel anchors under the logo */
+  .navbar-inner { 
+    position: relative; 
+    justify-content: flex-end;
+    padding: 0.5rem 1rem;
+    gap: 1rem;
+    min-height: 60px;
+    align-items: center;
+  }
+
+  /* hide the desktop row version */
+  .nav-list { display: none !important; }
+
+  /* right‑aligned floating panel under the logo */
+  .nav-list.panel {
+    position: absolute;
+    right: 0.75rem;
+    top: 100%;
+    margin-top: 0.5rem;
+    width: min(92vw, 420px);
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    background: rgba(0,114,122,0.95);
+    border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(0,0,0,.22);
+    z-index: 20;
+    max-height: 80vh;
+    overflow-y: auto;
+
+    /* closed state */
+    transform: translateY(6px) scale(0.98);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  /* Ensure mobile panel search doesn't overflow */
+
+  .nav-list.panel .mobile-search-item {
+    list-style: none;
+  }
+  
+  /* Align nav items to the left */
+  .nav-list.panel .nav-item {
+    text-align: left;
+  }
+  
+  .nav-list.panel .nav-link {
+    text-align: left;
+    display: block;
+  }
+
+  /* Make sure all menu items align left */
+  .nav-list.panel .nav-item {
+    width: 100%;
+    text-align: left;
+  }
+  
+  .nav-list.panel .nav-link {
+    text-align: left;
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+  
+  /* Align dropdown items to left too */
+  .nav-list.panel .dropdown-item {
+    text-align: left;
+    width: 100%;
+  }
+  
+  .nav-list.panel .dropdown-item a {
+    text-align: left;
+    display: block;
+  }
+  
+  /* Make sure dropdown menus span full width and align left */
+  .nav-list.panel .dropdown-menu {
+    width: 100%;
+    padding-left: 1rem;
+  }
+
+  /* OPEN state (wins against .nav-list {display:none}) */
+  .nav-list.panel.open { 
+    display: flex !important;
+    opacity: 1;
+    transform: translateY(6px) scale(1);
+    pointer-events: auto;
+  }
+
+  /* only main items visible by default; show submenus on hover/focus */
+  .nav-list.panel .dropdown-menu {
+    position: static;
+    display: none !important;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.25rem 0 0.5rem;
+    background: transparent;
+    opacity: 1;
+    visibility: visible;
+  }
+  .nav-list.panel .nav-item.dropdown:hover > .dropdown-menu,
+  .nav-list.panel .nav-item.dropdown:focus-within > .dropdown-menu {
+    display: flex !important;
+  }
+
+  /* caret on parents */
+  .nav-list.panel .nav-item.dropdown > .nav-link::after {
+    content: '▾';
+    margin-left: 0.4rem;
+    font-size: .8em;
+  }
+
+  /* remove the blur bar entirely */
+  .navbar { background: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  .navbar::after { display: none !important; }
+
+
+  .logo {
+    height: auto;
+    max-height: 6rem;  /* Much smaller for mobile - was 12rem */
+    width: auto;
+  }
+
+  .logo-container {
+    margin-left: auto;
+    margin-right: 0.5rem;
+    max-height: 4rem;  /* Constrain container too */
+  }
+
+  .navbar-inner {
+    justify-content: flex-end;
+    padding: 0.5rem 1rem;  /* Better mobile padding */
+  }
+
+  .navbar {
+    height: auto;  /* Allow navbar to size naturally */
+    min-height: 60px;
+    padding: 0.5rem 0.5rem;
+  }
+
+   .nav-search {
+    display: none !important;
+  }
+
+   .nav-list { display: none !important; }
+}
+
+/* Base: adds space for the icon and centers it vertically */
+.with-icon {
+  position: relative;
+  --hover-shift: 0px;              /* unified offset */
+  padding-left: calc(3rem + var(--hover-shift));
+  transition: padding-left .18s ease;     
+}
+
+/* Draw the icon via mask so it inherits text color */
+.with-icon::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  transform: translateY(-50%) translateX(var(--hover-shift));
+  transition: transform .18s ease;
+  background-color: var(--color-light-blue);
+  -webkit-mask-image: var(--icon);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-image: var(--icon);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  opacity: 0.95;
+}
+
+.dropdown-item a.with-icon {
+  display: block;                
+  padding-left: 3rem;            
+  position: relative;
+  line-height: 1.8rem;           
+}
+
+
+/* Per-link icon assignments (swap URLs to your assets) */
+.icon-description { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/project/projectdescription2-transparent.webp"); }
+.icon-model       { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/project/model2-transparent.webp"); }
+.icon-proof         { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/project/proof-transparent.webp"); }
+.icon-app       { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/project/application-transparent.webp"); }
+.icon-contribution     { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/project/contribution-transparent.webp"); }
+.icon-headline     { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/project/headline-transparent.webp"); }
+.icon-overviewhp     { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/humanpractices/overview-2-transparent.webp"); }
+.icon-ihp     { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/humanpractices/ihp-transparent.webp"); }
+.icon-meetingigem     { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/humanpractices/meetingigem-transparent.webp"); }
+.icon-sustainability     { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/sustainibility/susticon.webp"); } 
+
+
+
+/* Hover/focus: bump both icon and text by the same amount */
+.dropdown-item .with-icon:hover,
+.dropdown-item .with-icon:focus-visible {
+  --hover-shift: 2px;   /* change this value to tune the motion */
+}
+
+/* Hover: change icon color */
+.dropdown-item .with-icon:hover::before,
+.dropdown-item .with-icon:focus-visible::before {
+  background-color: var(--color-light-orange);
+}
+
+/* (nice-to-have) respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .with-icon { transition: none; }
+  .with-icon::before { transition: none; }
+}
+
+
+/* --- Wetlab submenu icons --- */
+.icon-wetlab-overview   { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/wetlab/wetlab-overview.webp"); }
+.icon-wetlab-experiments{ --icon: url("https://static.igem.wiki/teams/5590/navbaricons/wetlab/wetlab-exp.webp"); }
+.icon-wetlab-protocols  { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/wetlab/wetlab-protocols.webp"); }
+.icon-wetlab-parts      { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/wetlab/wetlab-parts.webp"); }
+.icon-wetlab-notebook   { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/wetlab/wetlab-notebook.webp"); }
+.icon-wetlab-results    { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/wetlab/wetlab-results.webp"); }
+
+
+/* --- Entrepreneur submenu icons --- */
+.icon-overview     { --icon: url("https://static.igem.wiki/teams/5590/entrepreneur/overview-transparent.webp"); }
+.icon-businessplan     { --icon: url("https://static.igem.wiki/teams/5590/entrepreneur/businessplan-transparent.webp"); }
+
+
+/* --- Drone submenu icons --- */
+.icon-hardware     { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/drone/hardware2.webp"); }
+.icon-software     { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/drone/software-transparent.webp"); }
+.icon-modeling     { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/drone/modeling-transparent.webp"); }
+
+/*---Team submenu icons---*/
+.icon-team-attributions     { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/team/team-attributions.webp"); }
+.icon-team-collaborations     { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/team/team-collab.webp"); }
+.icon-partners     { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/team/team-partnership.webp"); }
+.icon-roster     { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/team/team-roster.webp"); }
+
+.icon-safety     { --icon: url("https://static.igem.wiki/teams/5590/navbaricons/project/application-transparent.webp"); }
+
+
+
+
+/* Mobile search item styling */
+.mobile-search-item {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(182, 227, 210, 0.2);
+}
+
+.mobile-search-item .navbar-search-wrapper .search-dropdown-panel {
+  position: static !important;
+  width: 100% !important;
+  margin-top: 0.5rem !important;
+  box-shadow: none !important;
+  background: rgba(0, 114, 122, 0.5) !important;
+}
+
+/* Mobile-only Home link */
+.mobile-home-item {
+  list-style: none;
+  border-bottom: 1px solid rgba(182, 227, 210, 0.2);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.mobile-home-item .nav-link {
+  display: block;
+  width: 100%;
+  font-size: 1.1rem;
+  color: var(--color-light-blue);
+  text-align: left;
+}
+
+.mobile-home-item .nav-link:hover {
+  color: var(--color-light-orange);
+}
+
+
+
+.nav-link.awards-highlight {
+  background: linear-gradient(90deg, #FF6700, #FF9243, #FFDABD, #B6E3D2, #00727A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+.nav-link.awards-highlight:hover {
+  background: linear-gradient(90deg, #FFDABD);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+

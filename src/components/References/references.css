@@ -1,0 +1,68 @@
+/* Minimal styling for inline citations and reference list */
+.inline-citation{
+  color: var(--color-light-blue);
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: baseline; /* align sup properly */
+  gap: 0.1rem;
+}
+.inline-citation:hover{ text-decoration: underline; }
+
+/* Academic-style superscript (like scholarly papers): clean, slightly smaller, clearly raised */
+.inline-citation-sup{
+  font-size: 0.75em;               /* slightly smaller than body but readable */
+  line-height: 1;
+  vertical-align: super;
+  transform: translateY(-0.12em) scale(0.98); /* modest raise */
+  transform-origin: center bottom;
+  color: var(--color-whitish);
+  background: transparent;         /* no pill background in academic style */
+  padding: 0 0.06rem;
+  border-radius: 2px;
+  font-weight: 600;                /* slightly bold but not heavy */
+  letter-spacing: normal;
+  box-shadow: none;
+  font-variant-numeric: lining-nums proportional-nums;
+}
+
+/* Accessible helper for screen readers */
+.sr-only{ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* Slightly reduce exponent offset on very small screens to avoid overlap */
+@media (max-width: 420px) {
+  .inline-citation-sup{ transform: translateY(-0.1em) scale(0.95); font-size: 0.78em; }
+}
+
+.inline-citation-bracket{
+  padding: 0.12rem 0.38rem;
+  border-radius: 999px;
+  color: var(--color-whitish);
+  font-weight: 700;
+  font-size: 0.85em;
+  line-height: 1;
+  display: inline-block;
+  min-width: 1.2em;
+  text-align: center;
+  transition: transform .12s ease, background .12s ease, box-shadow .12s ease;
+  box-shadow: 0 0 0 0 rgba(255,255,255,0.04);
+  /* make digits slightly more prominent */
+  font-variant-numeric: lining-nums proportional-nums;
+}
+
+.inline-citation:hover .inline-citation-bracket,
+.inline-citation:focus .inline-citation-bracket{
+  transform: translateY(-2px);
+}
+
+.reference-list li:focus{
+  outline: 3px solid rgba(77,214,255,0.12);
+  outline-offset: 6px;
+}
+
+.reference-list{ margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1rem; }
+.reference-list h3{ color: var(--color-whitish); margin-bottom: 0.5rem; }
+.reference-list ol{ padding-left: 1.2rem; color: var(--color-text); }
+.reference-list li{ margin: .5rem 0; line-height: 1.45; }
+.reference-list .backlink{ margin-left: .6rem; color: var(--color-light-blue); text-decoration: none; }
+.reference-list .backlink:hover{ text-decoration: underline; }

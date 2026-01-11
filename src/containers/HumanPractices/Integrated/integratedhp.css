@@ -1,0 +1,265 @@
+/* EducationPage.css - Adapted for Integrated Human Practices with Project Description styling */
+.education-container {
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+}
+
+.education-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr; /* Same as Project Description */
+  gap: 3rem; /* Same as Project Description */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem; /* Same as Project Description */
+  background-color: #000;
+  box-sizing: border-box;
+}
+
+/* Sidebar presentation is centralized in src/components/Sidebar/sidebar.css */
+
+/* Main content area - Project Description style */
+.education-main {
+  flex: 1;
+  padding: 0; /* Remove extra padding to match Project Description */
+  background-color: #000;
+  color: var(--color-text);
+  overflow-y: auto;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+.education-main > div {
+  width: 100%;
+  max-width: none;
+}
+
+/* Sections styled like Project Description blocks */
+.education-main section {
+  background: transparent;
+  border-radius: 1rem;
+  padding: 2rem 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+  margin: 0 auto;
+  align-items: flex-start;
+  max-width: 1100px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.education-main .body {
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.education-main .subtitle {
+  color: var(--color-dark-orange);
+  font-size: 1.5rem;
+  margin: 1.5rem 0 0.5rem 0;
+  font-weight: 600;
+}
+
+/* Text content styling - Project Description style */
+.education-main p {
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+  width: 100%;
+  max-width: none;
+  word-wrap: normal;
+  white-space: normal;
+}
+
+.education-main h2 {
+  color: var(--color-dark-orange);
+  font-size: 2rem;
+  margin: 2rem 0 0.5rem 0;
+  font-weight: 700;
+  width: 100%;
+  max-width: none;
+}
+
+.education-main h3 {
+  color: var(--color-dark-orange);
+  font-size: 1.5rem;
+  margin: 1.5rem 0 0.5rem 0;
+  font-weight: 600;
+  width: 100%;
+  max-width: none;
+}
+
+.education-main h4 {
+  color: var(--color-light-orange);
+  font-size: 1.2rem;
+  margin: 1rem 0 0.5rem 0;
+  font-weight: 500;
+  width: 100%;
+  max-width: none;
+}
+
+.education-main ul {
+  color: var(--color-text);
+  line-height: 1.7;
+  margin: 1rem 0 1.5rem 0;
+  padding-left: 1.5rem;
+  width: 100%;
+  max-width: none;
+}
+
+.education-main li {
+  margin: 0.5rem 0;
+  color: var(--color-text);
+  width: 100%;
+  max-width: none;
+}
+
+.education-main strong, .education-main b {
+  color: var(--color-light-orange);
+  font-weight: 700;
+}
+
+.education-main em {
+  color: var(--color-light-orange);
+  font-style: italic;
+}
+
+/* Meeting Cards - Project Description inspired styling */
+.meeting-card {
+  background: rgba(0, 114, 122, 0.1);
+  border: 1px solid var(--color-dark-blue);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.meeting-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.meeting-header {
+  margin-bottom: 1rem;
+}
+
+.meeting-header h3 {
+  color: var(--color-dark-orange);
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.meeting-details {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.meeting-details span {
+  color: var(--color-light-orange);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.meeting-section h4 {
+  color: var(--color-dark-orange);
+  font-size: 1.1rem;
+  margin: 1rem 0 0.5rem 0;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 103, 0, 0.3);
+  padding-bottom: 0.3rem;
+}
+
+.meeting-section p {
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.meeting-section ul {
+  color: var(--color-text);
+  line-height: 1.7;
+  margin: 1rem 0 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.meeting-section li {
+  margin: 0.5rem 0;
+  color: var(--color-text);
+}
+
+.meeting-section strong, .meeting-section b {
+  color: var(--color-light-orange);
+  font-weight: 700;
+}
+
+/* Responsive Design - exactly like Project Description */
+@media (max-width: 768px) {
+  .education-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .education-main h2,
+  .content-area h2,
+  section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .meeting-header h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Compatibility with existing layout structure */
+.hardware-layout {
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+}
+
+.hardware-layout .container-fluid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.hardware-layout .row {
+  display: grid;
+  grid-template-columns: 320px 1fr; /* Same as Project Description */
+  gap: 3rem; /* Same as Project Description */
+  margin: 0;
+  width: 100%;
+}
+
+.hardware-layout .col-lg-3 {
+  padding: 0;
+  order: 1;
+}
+
+.hardware-layout .col-lg-9 {
+  padding: 0;
+  order: 2;
+}
+
+@media (max-width: 768px) {
+  .hardware-layout .row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .hardware-layout .container-fluid {
+    padding: 1rem 0.5rem;
+  }
+}

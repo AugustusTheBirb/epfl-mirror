@@ -1,0 +1,212 @@
+/* Proof block for section containers (reuse from unified style) */
+.proof-block {
+  background: transparent;
+  border-radius: 1.2rem;
+  box-shadow: none;
+  margin-bottom: 2.5rem;
+  transition: none;
+}
+
+/* Placeholder styles for videos, photos, graphs */
+.video-placeholder, .photo-placeholder, .graph-placeholder {
+  background: #f3f3f3;
+  border: 2px dashed #bbb;
+  border-radius: 0.7rem;
+  min-height: 180px;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.video-placeholder {
+  min-height: 200px;
+  min-width: 320px;
+}
+
+.graph-placeholder {
+  min-height: 180px;
+  min-width: 260px;
+}
+
+.pdf-link, .repo-link {
+  display: inline-block;
+  margin-top: 0.7rem;
+  padding: 0.5rem 1.2rem;
+  background: var(--color-dark-orange, #ff7f32);
+  color: #fff;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.pdf-link:hover, .repo-link:hover {
+  background: #d65c1e;
+}
+
+.caption {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-style: normal;
+}
+
+/* Stronger enforcement: make sure captions on this page are not italic even if other files define .caption as italic */
+.proof-block .caption {
+  font-style: normal !important;
+  font-weight: 400; /* keep normal weight; titles inside are strong/bold */
+}
+
+/* Make sure strong/b inside captions keep the caption's italic/color and appropriate weight */
+.caption strong,
+.caption b {
+  font-weight: 700;
+  font-style: normal; /* keep consistent normal look */
+  display: inline; /* keep title on same line as legend */
+  margin-right: 0.4rem; /* small space between title and legend */
+  color: inherit;
+}
+
+/* Ensure links inside captions don't clash with caption color */
+.caption a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.body {
+  font-size: 1.08rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* Horizontal photo row for categories */
+.category-photo-row {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 0.7rem;
+}
+
+@media (max-width: 900px) {
+  .video-placeholder, .photo-placeholder, .graph-placeholder {
+    min-width: 120px;
+    min-height: 120px;
+    font-size: 0.95rem;
+  }
+  .category-photo-row {
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: center;
+  }
+}
+/* ==========================
+   Burn Test Page
+   ========================== */
+
+.burntest-container {
+  min-height: 100vh;
+  padding: 6rem 1rem 3rem; /* ✅ Top padding = navbar height (~90px) + extra spacing */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.burntest-container .title {
+  color: var(--color-dark-orange);
+}
+
+.burntest-container .subtitle {
+  color: var(--color-light-orange);
+}
+
+.burntest-container .body {
+  color: var(--color-text);
+  max-width: var(--max-content);
+  margin: 0 auto;
+}
+
+.burntest-section {
+  margin-top: 2rem;
+  padding: 1rem;
+}
+.results-category {
+  margin-top: 1.25rem;
+}
+
+/* Small dark-orange marker at the start of each results subsection */
+.results-category h4 {
+  position: relative;
+  padding-left: 1.1rem; /* leave room for the marker */
+}
+.results-category h4::before {
+  content: '';
+  position: absolute;
+  left: 0.2rem; /* decale vers l'interieur */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background: var(--color-dark-orange);
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px rgba(255, 103, 0, 0.06);
+}
+
+/* Hover and animation affordance */
+.results-category h4:hover::before,
+.results-category h4:focus::before,
+.results-category h4:focus-within::before {
+  transform: translateY(-50%) scale(1.25);
+  box-shadow: 0 0 8px rgba(255,103,0,0.25);
+}
+
+@keyframes marker-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,103,0,0.18); }
+  70% { box-shadow: 0 0 10px 6px rgba(255,103,0,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,103,0,0); }
+}
+
+/* gentle periodic pulse to hint discoverability on larger screens */
+.results-category h4::before {
+  animation: marker-pulse 4s ease-in-out infinite;
+}
+
+/* Add a little extra space between the Results title and the first category */
+.results-category:first-of-type { margin-top: 0.8rem; }
+
+.burntest-image .image-placeholder {
+  margin: 1.5rem auto;
+  width: 100%;
+  min-height: 250px;
+  border: 2px dashed var(--color-light-blue);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(182, 227, 210, 0.05);
+}
+
+/* Ensure inline citations match the global academic superscript style used elsewhere */
+.inline-citation { display: inline-flex; align-items: baseline; gap: 0.1rem; }
+.inline-citation-sup { font-size: 0.75em; line-height: 1; vertical-align: super; transform: translateY(-0.12em) scale(0.98); transform-origin: center bottom; color: var(--color-whitish); background: transparent; padding: 0 0.06rem; border-radius: 2px; font-weight: 600; box-shadow: none; font-variant-numeric: lining-nums proportional-nums; }
+.sr-only{ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .burntest-container {
+    padding: 5rem 1rem 2rem; /* ✅ smaller devices still clear navbar */
+    gap: 1.5rem;
+  }
+
+  .burntest-image .image-placeholder {
+    min-height: 180px;
+  }
+}

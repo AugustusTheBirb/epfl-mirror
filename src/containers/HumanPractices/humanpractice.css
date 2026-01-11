@@ -1,0 +1,89 @@
+:root { --nav-h: 80px; } /* match your fixed navbar height */
+
+/* ---- Full‑width HERO ---- */
+.hp-hero-full {
+  margin-top: var(--nav-h);              /* avoid overlap with fixed navbar */
+  position: relative;
+  min-height: clamp(340px, 46vw, 520px);
+  background: center/cover no-repeat;
+  display: grid;
+  place-items: center;
+  color: #fff;
+}
+.hp-hero-full__overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.65));
+}
+.hp-hero-full__content {
+  position: relative;
+  max-width: 1100px;
+  padding: 28px 20px;
+  text-align: center;
+}
+.hp-hero-full h1 {
+  margin: 0 0 6px;
+  font-size: clamp(28px, 5vw, 56px);
+  font-weight: 800;
+  letter-spacing: .4px;
+}
+.hp-hero-full .subtitle {
+  margin: 0 0 10px;
+  font-size: clamp(16px, 2.4vw, 22px);
+  opacity: .95;
+}
+.hp-hero-full .desc {
+  margin: 0 auto;
+  max-width: 920px;
+  font-size: clamp(14px, 2vw, 18px);
+  opacity: .9;
+}
+
+/* ---- Hub content wrapper ---- */
+.hp-hub-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+/* ---- Large rectangle buttons ---- */
+.hp-cta-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.hp-cta {
+  --bg: #2563eb; /* default blue */
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  min-height: 120px;                /* bigger rectangle */
+  padding: 14px 18px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #fff;
+  background: var(--bg);
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  transition: transform .15s ease, filter .2s ease, box-shadow .2s ease;
+}
+.hp-cta:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 14px 30px rgba(0,0,0,.32);
+}
+.hp-cta.is-active { outline: 2px solid #ffffff33; }
+
+.hp-cta__title { font-weight: 800; letter-spacing: .2px; font-size: 18px; }
+.hp-cta__hint  { opacity: .95; font-size: 14px; }
+
+/* specific colors per card */
+.hp-cta-row a:nth-child(1) { --bg: #2563eb; } /* Education */
+.hp-cta-row a:nth-child(2) { --bg: #10b981; } /* Integrated */
+.hp-cta-row a:nth-child(3) { --bg: #f97316; } /* Meetings */
+
+.hp-subcontent { margin-top: 6px; }
+
+/* Smooth anchor scrolling when children have in-page anchors */
+html, body { scroll-padding-top: var(--nav-h); }

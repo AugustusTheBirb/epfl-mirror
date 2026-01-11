@@ -1,0 +1,188 @@
+/* ======= LAYOUT WRAPPER ======= */
+.page-layout,
+.hardware-layout,
+.software-layout,
+.education-layout,
+.modeling-layout,
+.entre-layout,
+.human-practices-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+  padding-bottom: 6rem;
+}
+
+.page-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* ======= SIDEBAR BASE ======= */
+
+.hardware-sidebar,
+.software-sidebar,
+.education-sidebar,
+.modeling-sidebar,
+.human-practices-sidebar,
+.entre-sidebar {
+  width: 250px;
+  padding: 1.5rem 1rem;
+  position: sticky;
+  top: calc(var(--nav-h, 90px) + 16px);
+  align-self: flex-start;
+  height: fit-content;
+
+  max-height: calc(100vh - (var(--nav-h, 90px) + 32px));
+  overflow-y: auto;
+
+  margin-top: 0.5rem;
+  margin-left: 0;
+
+  background: #000;
+  border-right: none;
+  box-shadow: none;
+  border-radius: 0;
+  z-index: 9; 
+}
+
+/* ======= SIDEBAR TITLE ======= */
+
+.sidebar-title {
+  color: var(--color-dark-orange, #ff9c3b);
+  font-family: 'Anton', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+/* ======= LIST RESETS ======= */
+
+.hardware-sidebar nav ul,
+.software-sidebar nav ul,
+.education-sidebar nav ul,
+.modeling-sidebar nav ul,
+.human-practices-sidebar nav ul,
+.entre-sidebar nav ul {
+  list-style: none;
+  padding: 0 1.5rem;
+  margin: 0;
+}
+
+.hardware-sidebar nav li,
+.software-sidebar nav li,
+.education-sidebar nav li,
+.modeling-sidebar nav li,
+.human-practices-sidebar nav li,
+.entre-sidebar nav li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  list-style: none;
+}
+
+/* ======= MAIN LEVEL LINKS ======= */
+
+.sidebar-button {
+  background: none;
+  border: none;
+  padding: 0.5rem 0;
+  margin: 0;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  color: var(--color-light-blue, #b6e3ff);
+  font-weight: 600;
+  font-family: var(--font-body, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  transition: all 0.2s ease;
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+.sidebar-button:hover {
+  color: var(--color-dark-orange, #ff9c3b);
+  background: none;
+  transform: none;
+}
+
+.sidebar-button.active {
+  font-weight: 700;
+  background: none;
+  color: var(--color-dark-orange, #ff9c3b);
+}
+
+/* ======= SUBLISTS / SUBITEMS ======= */
+
+.hardware-sidebar .sidebar-sublist,
+.software-sidebar .sidebar-sublist,
+.education-sidebar .sidebar-sublist,
+.modeling-sidebar .sidebar-sublist,
+.human-practices-sidebar .sidebar-sublist,
+.entre-sidebar .sidebar-sublist {
+  list-style: none;
+  padding-left: 2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-left: 2px solid rgba(182, 227, 210, 0.15);
+}
+
+.sidebar-subitem {
+  display: block;
+  padding: 0.5rem 0;
+  padding-left: 1rem;
+  color: rgba(182, 227, 210, 0.75);
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+  text-decoration: none;
+  list-style: none;
+}
+
+.sidebar-subitem:hover {
+  color: #B6E3D2;
+  text-decoration: none;
+}
+
+/* ======= MOBILE: SIDEBAR ABOVE CONTENT ======= */
+
+@media (max-width: 768px) {
+  .page-layout,
+  .hardware-layout,
+  .software-layout,
+  .education-layout,
+  .modeling-layout,
+  .entre-layout,
+  .human-practices-layout {
+    flex-direction: column;
+  }
+
+  .hardware-sidebar,
+  .software-sidebar,
+  .education-sidebar,
+  .modeling-sidebar,
+  .human-practices-sidebar,
+  .entre-sidebar {
+    position: sticky; 
+    top: calc(var(--nav-h, 70px));
+    width: 100%;
+    max-height: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    margin-top: 0;
+  }
+
+  .hardware-sidebar nav ul,
+  .software-sidebar nav ul,
+  .education-sidebar nav ul,
+  .modeling-sidebar nav ul,
+  .human-practices-sidebar nav ul,
+  .entre-sidebar nav ul {
+    padding: 0 0.5rem;
+  }
+}

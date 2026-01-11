@@ -1,0 +1,53 @@
+/* AwardsTicker.css */
+
+.awards-ticker {
+  background: #B6E3D2;
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+.awards-ticker-inner {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  animation: ticker-scroll 25s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.awards-ticker-inner:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.awards-ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #00727A;
+}
+
+.awards-ticker-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.awards-ticker-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #00727A;
+  opacity: 0.4;
+  flex-shrink: 0;
+}

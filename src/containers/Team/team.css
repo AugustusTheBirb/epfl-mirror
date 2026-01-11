@@ -1,0 +1,12 @@
+@media (min-width: 768px) {
+  .text_team {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+}
+@media (max-width: 767px) {
+  .text_team {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}

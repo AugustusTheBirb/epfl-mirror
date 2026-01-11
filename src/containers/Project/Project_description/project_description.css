@@ -1,0 +1,337 @@
+/* Card description text color (front and back) */
+.projectdescrip-card-flip-front p,
+.projectdescrip-card-flip-back figcaption {
+  color: #fff;
+}
+
+/* Hero description text at the top */
+.projectdescrip-description {
+  color: #fff;
+}
+.projectdescrip-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+  margin: 2rem 0;
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+
+.projectdescrip-card-flip {
+  background: none;
+  border: none;
+  perspective: 1200px;
+  width: 250px;
+  min-width: 220px;
+  max-width: 250px;
+  height: 300px;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.projectdescrip-card-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(.4,1.5,.5,1);
+  transform-style: preserve-3d;
+}
+
+.projectdescrip-card-flip.selected .projectdescrip-card-flip-inner {
+  transform: rotateY(180deg);
+  z-index: 2;
+}
+
+.projectdescrip-card-flip-front, .projectdescrip-card-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-light-blue);
+  padding: 1rem 0.8rem;
+  text-align: center;
+}
+
+.projectdescrip-card-flip-back {
+  transform: rotateY(180deg);
+  /* Make the back face light so flipped cards are readable */
+  background: #ffffff;
+  color: var(--color-dark-blue);
+  z-index: 3;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+
+.projectdescrip-figure-overlay {
+  position: absolute;
+  left: 50%;
+  top: -30px;
+  transform: translateX(-50%);
+  z-index: 10;
+  background: rgba(255,255,255,0.98);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  padding: 1.2rem 1.2rem 0.7rem 1.2rem;
+  min-width: 260px;
+  max-width: 370px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto;
+}
+
+/* Layout wrapper: two-column section so sommaire and main text share the same placement */
+.projectdescrip-section {
+  display: grid;
+  grid-template-columns: 320px 3fr; /* fixed left column for sommaire, flexible main column */
+  gap: 3rem;
+  align-items: start;
+  width: 100%;
+  margin: 0; /* span full page */
+  padding: 2.5rem 2rem; /* consistent page gutters */
+  box-sizing: border-box;
+}
+
+/* Sommaire (Table of Contents) */
+.projectdescrip-sommaire {
+  width: 100%;
+  margin: 0;
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 1.2rem;
+  text-align: left;
+  position: sticky;
+  top: 6rem; /* keep it visible while scrolling */
+  height: fit-content;
+}
+
+.projectdescrip-sommaire h2 {
+  color: var(--color-dark-orange);
+}
+
+.projectdescrip-hero .projectdescrip-overlay h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.projectdescrip-hero .projectdescrip-overlay p {
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--color-dark-orange);
+  font-size: 1.5rem;
+  margin-bottom: 0.7rem;
+  font-weight: 700;
+}
+
+.projectdescrip-sommaire ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+
+.projectdescrip-sommaire li {
+  font-size: 1.08rem;
+}
+
+.projectdescrip-sommaire a {
+  color: var(--color-light-blue);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.projectdescrip-sommaire a:hover {
+  color: var(--color-dark-orange);
+  text-decoration: underline;
+}
+/* ==========================
+   Project Description Styles
+   ========================== */
+
+
+/* ==========================
+   Project Description Styles (Drone Section Inspired)
+   ========================== */
+
+/* Hero section background and layout */
+.projectdescrip-hero {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  background-image: url('https://static.igem.wiki/teams/5590/assets-drone/screenshot-2025-09-18-at-16-18-20.webp'); /* Replace with your own image if needed */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-light-blue);
+}
+
+.projectdescrip-overlay {
+  background: rgba(0, 114, 124, 0.7);
+  padding: 3rem 2rem;
+  max-width: 800px;
+  text-align: center;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+
+
+.projectdescrip-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 1.5rem 1rem;
+  margin: 0.5rem;
+  flex: 1 1 220px;
+  min-width: 220px;
+  max-width: 320px;
+  transition: box-shadow 0.2s, border 0.2s, transform 0.25s cubic-bezier(.4,1.5,.5,1), z-index 0.2s;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  z-index: 1;
+}
+
+.projectdescrip-card.selected {
+  transform: scale(1.08) translateY(-10px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  border: 2px solid var(--color-light-blue);
+  z-index: 2;
+}
+
+
+.projectdescrip-block {
+  background: transparent;
+  border-radius: 1rem;
+  padding: rem 0; /* respect section gutters; no extra horizontal offset */
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+  margin: 0 auto; /* center the constrained column within the right grid column */
+  align-items: flex-start; /* text flows from the left inside the constrained column */
+  max-width: 1300px; /* increase width so text occupies more space */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.projectdescrip-block h2 {
+  color: var(--color-dark-orange);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.projectdescrip-img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 1rem;
+  margin: 1.2rem 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+  object-fit: cover;
+}
+
+.projectdescrip-cards {
+  display: flex;
+  flex-wrap: nowrap; /* force horizontal alignment */
+  gap: 2rem;
+  justify-content: flex-start;
+  margin-top: 2rem;
+  overflow-x: auto; /* allow horizontal scroll on small screens */
+  padding-bottom: 0.5rem;
+}
+
+.projectdescrip-card {
+  position: relative;
+  width: 220px;
+  min-height: 220px;
+  border-radius: 1rem;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  background: var(--color-light-blue);
+  display: flex;
+  align-items: center;
+  transition: none;
+}
+
+.projectdescrip-card:hover {
+  transform: scale(1.05);
+}
+
+.projectdescrip-card img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.projectdescrip-card-label {
+  padding: 1rem 0.2rem;
+  color: var(--color-dark-blue);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  background: rgba(255,255,255,0.7);
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .projectdescrip-hero {
+    height: 40vh;
+  }
+  .projectdescrip-title {
+    font-size: 2rem;
+  }
+  .projectdescrip-section {
+    padding: 1.2rem 0.2rem 0 0.2rem;
+    gap: 1.2rem;
+    grid-template-columns: 1fr; /* collapse to single column on small screens */
+  }
+  .projectdescrip-block {
+    padding: 1.2rem 0.5rem;
+  }
+  .projectdescrip-cards {
+    gap: 1rem;
+    /* keep horizontal scroll on small screens */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    padding: 1rem 0.5rem;
+  }
+  .projectdescrip-card-flip {
+    min-width: 250px;
+    width: 250px;
+  }
+  /* On small screens, make sommaire full-width and remove the left offset */
+  .projectdescrip-sommaire {
+    width: 100%;
+    max-width: 100%;
+    margin: 1rem auto 0 auto;
+    padding: 1rem;
+  }
+}

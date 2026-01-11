@@ -1,0 +1,160 @@
+.quote-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: black;
+  color: var(--color-dark-orange);
+  padding: 120px 20px;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+  gap: 40px;
+  opacity: 0;
+  animation: fadeInZoom 2s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.stat-block {
+  text-align: center;
+  max-width: 360px;
+  flex: 1 1 280px; /* Better responsive behavior */
+  min-width: 250px;
+}
+
+.stat-icon {
+  font-size: 56px;
+  margin-bottom: 20px;
+}
+
+.stat-number {
+  font-size: 42px;
+  font-weight: bold;
+  font-family: 'Anton', sans-serif;
+  color: var(--color-dark-orange);
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 18px;
+  margin-top: 14px;
+  color: var(--color-light-orange);
+  font-family: var(--font-body);
+  line-height: 1.4;
+}
+
+.stat-desc {
+  font-size: 15px;
+  color: var(--color-whitish);
+  margin-top: 6px;
+  font-family: var(--font-body);
+  line-height: 1.4;
+}
+
+@keyframes fadeInZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Tablet responsiveness */
+@media (max-width: 1024px) {
+  .quote-stats {
+    padding: 80px 20px;
+    margin-bottom: 60px;
+    gap: 35px;
+  }
+
+  .stat-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .stat-number {
+    font-size: 36px;
+  }
+
+  .stat-label {
+    font-size: 17px;
+    margin-top: 12px;
+  }
+
+  .stat-desc {
+    font-size: 14px;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .quote-stats {
+    padding: 60px 16px;
+    margin-bottom: 40px;
+    gap: 30px;
+  }
+
+  .stat-block {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .stat-icon {
+    font-size: 44px;
+    margin-bottom: 14px;
+  }
+
+  .stat-number {
+    font-size: 32px;
+  }
+
+  .stat-label {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .stat-desc {
+    font-size: 14px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .quote-stats {
+    padding: 40px 12px;
+    gap: 25px;
+  }
+
+  .stat-icon {
+    font-size: 40px;
+  }
+
+  .stat-number {
+    font-size: 28px;
+  }
+
+  .stat-label {
+    font-size: 15px;
+  }
+
+  .stat-desc {
+    font-size: 13px;
+  }
+}
+
+
+.quote-stats {
+  padding: 80px 20px;
+  margin-top: 300px;
+}
+
+/* Mobile (under 768px) */
+@media (max-width: 768px) {
+  .quote-stats {
+    margin-top: 60px; /* smaller offset on phones */
+    padding: 60px 16px;
+  }
+}
+

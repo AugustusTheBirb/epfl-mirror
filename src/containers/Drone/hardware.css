@@ -1,0 +1,236 @@
+/* ==========================
+   Hardware Project Description Styles (Matching Project Description)
+   ========================== */
+
+/* Card description text color (front and back) */
+.projectdescrip-card-flip-front p,
+.projectdescrip-card-flip-back figcaption {
+  color: #fff;
+}
+
+/* Hero description text at the top */
+.projectdescrip-description {
+  color: #fff;
+}
+
+.projectdescrip-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+  margin: 2rem 0;
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+.projectdescrip-card-flip {
+  background: none;
+  border: none;
+  perspective: 1200px;
+  width: 250px;
+  min-width: 220px;
+  max-width: 250px;
+  height: 300px;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.projectdescrip-card-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(.4,1.5,.5,1);
+  transform-style: preserve-3d;
+}
+
+.projectdescrip-card-flip.selected .projectdescrip-card-flip-inner {
+  transform: rotateY(180deg);
+  z-index: 2;
+}
+
+.projectdescrip-card-flip-front, .projectdescrip-card-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-light-blue);
+  padding: 1rem 0.8rem;
+  text-align: center;
+}
+
+.projectdescrip-card-flip-back {
+  transform: rotateY(180deg);
+  background: #ffffff;
+  color: var(--color-dark-blue);
+  z-index: 3;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+
+.projectdescrip-card-label {
+  padding: 1rem 0.2rem;
+  color: var(--color-dark-blue);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  background: rgba(255,255,255,0.7);
+  width: 100%;
+}
+
+.projectdescrip-img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 1rem;
+  margin: 1.2rem 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+  object-fit: cover;
+}
+
+/* Figure captions: match burntest/software styling for consistency */
+.caption {
+  color: #666;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  font-style: normal;
+}
+
+.proof-block .caption {
+  font-style: normal !important;
+  font-weight: 400;
+}
+
+/* ==========================
+   Hardware Hero Section (Matches Project Description)
+   ========================== */
+.pagehead-hero {
+  width: 100vw;      /* full viewport width */
+  margin-left: calc(-50vw + 50%); /* break out of container centering */
+  position: relative;
+}
+
+.hardware-hero {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  background-image: url('https://static.igem.wiki/teams/5590/assets-drone/screenshot-2025-09-18-at-16-18-20.webp'); /* Replace with your own image if needed */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-dark-orange);
+}
+
+.hardware-hero-overlay h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.hardware-hero-overlay p {
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--color-dark-orange);
+}
+
+.hardware-hero-overlay {
+  background: rgba(0, 114, 124, 0.7);
+  padding: 3rem 2rem;
+  max-width: 800px;
+  text-align: center;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+/* hardware.css */
+
+/* Layout wrapper (same as software) */
+.hardware-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+  max-width: 100%;
+  margin: 2rem 0; /* Changed to remove auto centering */
+  padding: 0;
+  position: relative;
+  z-index: 3;
+  width: 100%;
+}
+
+/* Main column */
+.hardware-main { 
+  min-width: 0;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Sidebar styles moved to shared component stylesheet (src/components/Sidebar/sidebar.css) */
+/* Page-specific sidebar overrides (if required) can remain here, otherwise the shared styles apply. */
+
+/* Sidebar Title */
+.sidebar-title {
+  color: var(--color-light-orange);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 136, 136, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Navigation list, buttons and scrollbar are centralized in src/components/Sidebar/sidebar.css */
+
+/* Main content spacing */
+.hardware-main {
+  padding-top: 1rem; /* Added space at the top of main content */
+}
+
+/* Prevent titles from hiding under sticky header */
+section { 
+  scroll-margin-top: 140px; /* Matched to offset value */
+}
+
+/* Hero overlay should not block pointer interactions below it */
+.drone-hero::before {
+  pointer-events: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hardware-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1rem auto; /* Reduced margin on mobile */
+  }
+  
+  .hardware-sidebar {
+    position: relative;
+    top: 0;
+    width: 100%;
+    max-height: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 136, 136, 0.3);
+    margin-top: 0;
+  }
+  
+  section { 
+    scroll-margin-top: 120px; /* Reset for mobile */
+  }
+}

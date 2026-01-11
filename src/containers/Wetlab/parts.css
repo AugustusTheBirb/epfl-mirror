@@ -1,0 +1,207 @@
+/* Styles for Wetlab parts page */
+
+.parts-page .parts-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0;
+}
+
+.parts-hero .lead {
+  max-width: 60ch;
+  color: var(--color-text-muted, #475569);
+}
+
+/* Tighter spacing for proof blocks and content on parts page */
+.proof-block p {
+  margin-top: 0.35rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.45;
+}
+
+.proof-content {
+  margin-top: 0.25rem;
+  margin-bottom: 0.6rem;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+}
+
+.btn-outline {
+  border: 1px solid var(--color-border, #e6e9ee);
+  background: transparent;
+  padding: 0.5rem 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--color-dark);
+}
+
+.parts-card {
+/* Align visual style with Entrepreneurship boxes */
+  background: linear-gradient(140deg, #aec6d0ff, color-mix(in oklab, var(--color-light-blue) 85%, #fff));
+  border: 1px solid color-mix(in oklab, var(--color-light-blue) 28%, rgba(0,0,0,0.06));
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.75rem;
+  color: var(--color-dark-blue, #032447);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+
+.parts-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 48px rgba(0,0,0,0.18);
+  border-color: color-mix(in oklab, var(--color-light-blue) 45%, rgba(0,0,0,0.12));
+}
+
+.parts-card-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.05rem;
+  color: var(--color-dark-blue);
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.parts-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.parts-table th,
+.parts-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border, #e6e9ee);
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Use the same dark text color for table body cells so recycled/new parts use the same tone as subparts/sources */
+.parts-table tbody tr td {
+  color: var(--color-dark, #0b1220);
+}
+
+/* Make the ID column (2nd column) darker and a bit bolder for legibility */
+.parts-table tbody tr td:nth-child(2),
+.parts-table tbody tr td:nth-child(2) a,
+.parts-table tbody tr td:nth-child(2) .parts-link {
+  color: var(--color-dark, #0b1220);
+  font-weight: 600;
+}
+
+.parts-table thead th {
+  font-weight: 600;
+  background: rgba(0,0,0,0.03);
+}
+
+.compact-list {
+  margin: 0;
+  padding-left: 1.05rem;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+}
+
+.muted {
+  color: var(--color-text-muted, #6b7280);
+}
+
+.small {
+  font-size: 0.9rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: #111827;
+}
+
+.badge-composite {
+  background: #ffedd5;
+}
+
+.badge-basic {
+  background: #e6f4ea;
+}
+
+.parts-link {
+  color: var(--color-link, #0b66ff);
+  text-decoration: none;
+}
+
+.parts-link:hover {
+  text-decoration: underline;
+}
+
+/* Darker links for subparts/sources compact lists for better contrast */
+.parts-table .compact-list li a,
+.parts-table .compact-list a,
+.parts-table td .parts-link {
+  color: var(--color-dark, #111827);
+  font-weight: 400;
+}
+
+@media (max-width: 800px) {
+  .parts-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .parts-hero .lead {
+    max-width: 100%;
+  }
+
+  .parts-table th,
+  .parts-table td {
+    padding: 8px 10px;
+  }
+}
+
+.parts-link {
+  color: white;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.parts-link:hover {
+  text-decoration: underline;
+  color: var(--color-dark-orange);
+}
+
+.parts-table.detailed td {
+  vertical-align: top;
+  padding: 12px;
+}
+
+.parts-table.detailed ul.compact-list {
+  margin: 0;
+  padding-left: 18px;
+  list-style-type: disc;
+}
+
+.expression-status strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.expression-notes {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.4;
+}
+
+
+.proof-container,
+.proof-container * {
+  font-family: var(--font-body) !important;
+}
+

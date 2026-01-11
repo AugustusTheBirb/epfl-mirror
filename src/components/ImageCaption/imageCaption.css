@@ -1,0 +1,152 @@
+.image-figure:hover .image-img {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 20px 45px rgba(255, 140, 0, 0.28);
+  filter: saturate(1.08);
+}
+
+/* Reusable image + caption styles for the site
+   Place this file under src/components/ImageCaption and import from components or pages
+   Usage examples:
+     <figure className="image-figure image-figure--small">
+       <img className="image-img" src="..." alt="..." />
+       <figcaption className="image-caption"><strong>Figure 1:</strong> Caption text</figcaption>
+     </figure>
+
+     <div className="image-row">
+       <figure className="image-figure image-figure--small">...</figure>
+       <figure className="image-figure image-figure--small">...</figure>
+     </div>
+
+     Responsive embed:
+     <div className="embed-responsive"><iframe src="..."></iframe></div>
+*/
+
+:root {
+  /* fallback CSS variables in case project doesn't define them */
+  --img-border-radius: 8px;
+  /* captions should be a readable light gray on dark backgrounds */
+  --image-caption-size: 0.95rem;
+}
+
+/* Row container used where multiple figures are placed side-by-side */
+.image-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Generic figure wrapper */
+.image-figure {
+  max-width: 520px; /* default */
+  margin: 0.5rem auto; /* center by default with a little vertical spacing */
+}
+
+/* ensure figures center in their container when the modifier is present */
+.image-figure--center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+}
+
+/* Size modifiers matching values used across the repo */
+.image-figure--small { max-width: 380px; }
+.image-figure--medium { max-width: 400px; }
+.image-figure--large { max-width: 520px; }
+.image-figure--full { max-width: 720px; }
+
+/* Center modifier (applies auto horizontal margins) */
+.image-figure--center { margin: 0.5rem auto; }
+
+/* Image itself */
+.image-img {
+  display: inline-block; /* allow text-align:center on the figure to center the image */
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--img-border-radius);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+}
+
+.image-figure:hover .image-img {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 20px 45px rgba(255, 140, 0, 0.28);
+  filter: saturate(1.08);
+}
+
+/* Caption styling */
+.image-caption,
+.caption { /* keep existing .caption to be compatible with current pages */
+  color: var(--color-whitish) !important; /* ensure visibility over other dark rules */
+  font-size: var(--image-caption-size);
+  margin-top: 0.5rem;
+  text-align: center;
+  line-height: 1.3;
+  font-family: var(--font-body);
+}
+
+/* Keep caption width constrained to the image width for centered alignment */
+.image-figure .image-caption,
+.image-figure .caption {
+  display: block;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Slight bold for figure label if using <strong> inside caption */
+.image-caption strong,
+.caption strong {
+  font-weight: 700;
+  margin-right: 0.25rem;
+}
+
+/* Responsive iframe / video wrapper (16:9) */
+.embed-responsive {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+.embed-responsive iframe,
+.embed-responsive video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: var(--img-border-radius);
+}
+
+/* Aspect-ratio helper using native CSS if available */
+.figure-aspect {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+/* Small utility: tight caption for side-by-side figures */
+.image-caption--tight {
+  font-size: 0.875rem;
+}
+
+/* Accessibility: ensure images scale but don't exceed container */
+.image-img[alt=""] {
+  /* decorative images should still be block-level and sized */
+  opacity: 0.9;
+}
+
+/* Optional shadow to match other project imagery (safe default, can be overridden) */
+.image-shadow {
+  box-shadow: 0 4px 14px rgba(11,18,32,0.06);
+}
+
+/* Indent bullet points for better visual hierarchy */
+ul {
+  margin-left: 1.5rem;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 0.3rem;
+}

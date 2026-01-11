@@ -1,0 +1,438 @@
+/* Shared wetlab page styles */
+.hero{
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  align-items:center;
+  margin-top: 18px;
+}
+.hero__art{
+  height: 240px; border-radius: 16px; background: radial-gradient(60% 80% at 70% 30%, rgba(77,214,255,0.25), transparent), linear-gradient(180deg, #101114, #0c0d0f);
+  border:1px solid var(--border); position: relative; overflow:hidden;
+}
+.hero__art::after{
+  content:""; position:absolute; inset:-20%; background: radial-gradient(50% 50% at 20% 50%, rgba(255,106,0,0.3), transparent);
+  filter: blur(30px);
+}
+.kpis{ display:grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.kpi{ background:#0f0f11; border:1px solid var(--border); border-radius: 12px; padding: 12px; text-align:center; }
+.kpi .num{ font-weight:900; font-size: 28px; }
+.kpi .lbl{ color: var(--muted); font-size:12px; letter-spacing:0.3px; }
+
+
+
+/* Protocol overlay 
+.overlay{
+  position: fixed; inset:0; background: rgba(0,0,0,0.7); display:flex; align-items:center; justify-content:center; padding: 24px; z-index: 100;
+}
+
+.overlay__panel{
+  width: min(1200px, 96vw); height: min(85vh, 900px); background:#0b0b0c; border:1px solid var(--border); border-radius: 16px; overflow:hidden; display:flex; flex-direction:column;
+}
+.overlay__top{ display:flex; align-items:center; justify-content:space-between; padding: 12px 16px; border-bottom:1px solid var(--border); }
+.overlay__content{ flex:1; overflow:auto; }
+.overlay__content iframe{ width:100%; height:100%; border:0; }
+
+
+/* Notebook layout  */
+.notebook{
+  display:grid; grid-template-columns: 260px 1fr; gap: 18px;
+}
+.toc{
+  position: sticky; top: 76px; align-self:start; background:#0f0f11; border:1px solid var(--border); border-radius: 14px; padding: 12px;
+}
+.toc a{ display:block; padding:8px 10px; border-radius:8px; color:var(--muted); text-decoration:none; }
+.toc a:hover{ background:#17171b; color:var(--fg); }
+.entry{ background:#0f0f11; border:1px solid var(--border); border-radius: 14px; padding: 16px; }
+
+
+/* Results accordion */
+.accordion{ display:grid; gap: 10px; }
+.accordion__item{ border:1px solid var(--border); border-radius:12px; background:#0f0f11; overflow:hidden; }
+.accordion__head{ display:flex; align-items:center; justify-content:space-between; padding:14px 16px; cursor:pointer; }
+.accordion__body{ overflow:hidden; height:0; }
+.accordion__content{ padding: 0 16px 16px; }
+
+
+/* ================================
+   Wetlab UI primitives (shared)
+   ================================ */
+
+   /* derived helpers for wetlab surfaces */
+:root{
+  
+  --wl-surface: #0d0d0f;
+  --wl-surface-2: #141418;
+  --wl-border: color-mix(in oklab, var(--color-light-blue) 18%, #000);
+  --wl-muted: color-mix(in oklab, var(--color-whitish) 60%, #000);
+  --wl-accent: var(--color-dark-orange);
+  --wl-accent-2: var(--color-light-blue);
+  --wl-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+
+/* Layout helpers */
+.container{ max-width: 1200px; margin: 0 auto; padding: clamp(16px, 3vw, 28px); }
+.section{
+  background: var(--wl-surface);
+  border: 1px solid var(--wl-border);
+  border-radius: 16px;
+  padding: clamp(16px, 3vw, 24px);
+  box-shadow: var(--wl-shadow);
+}
+
+.grid{ display:grid; gap: clamp(12px, 2.2vw, 20px); }
+.grid-2{ grid-template-columns: 1fr 1fr; }
+.grid-3{ grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px){ .grid-2, .grid-3{ grid-template-columns: 1fr; } }
+
+.card{
+  background: var(--wl-surface-2);
+  border: 1px solid var(--wl-border);
+  border-radius: 16px;
+  padding: clamp(12px, 2.2vw, 18px);
+}
+.card img{ width:100%; height:auto; display:block; border-radius: 12px; }
+
+.badge{
+  display:inline-block;
+  font: 600 var(--step--1)/1 var(--font-body);
+  color: var(--wl-muted);
+  border:1px solid var(--wl-border);
+  background:#0b0b0d;
+  padding:.35rem .55rem;
+  border-radius: 8px;
+}
+
+.chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
+.chip{
+  padding:.45rem .7rem;
+  border-radius: 999px;
+  border:1px solid var(--wl-border);
+  background:#101014;
+  color: var(--wl-muted);
+  font: 500 var(--step--1)/1 var(--font-body);
+}
+
+
+/* Buttons*/
+.button{
+  -webkit-appearance: none;
+  appearance: none;
+  border:none;
+  cursor:pointer;
+  padding:.65rem 1rem;
+  border-radius: 12px;
+  color:#101010;
+  font: 800 var(--step-0)/1 var(--font-body);
+  background: linear-gradient(90deg, var(--color-dark-orange), var(--color-orange));
+  box-shadow: 0 6px 22px rgba(255,146,67,.18);
+}
+.button:hover{ filter: brightness(1.05); }
+.button:active{ transform: translateY(1px); }
+.button.ghost{
+  background: transparent;
+  color: var(--color-whitish);
+  border: 1px solid var(--wl-border);
+  box-shadow: none;
+}
+
+
+/* Links inside wetlab content*/
+.section a{ color: var(--wl-accent-2); }
+.section a:hover{ text-decoration: underline; }
+
+/* Elegant wetlab navigation links */
+.chip:hover {
+  background: linear-gradient(135deg, #2a2a30 0%, #3a3a40 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4) !important;
+  border-color: var(--wl-accent) !important;
+}
+
+
+/* ================================
+   Overview / Hero (WetlabHome)
+   ================================ */
+
+.hero{
+  display:grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(14px, 2.8vw, 24px);
+  align-items:center;
+  margin-top: clamp(8px, 1vw, 18px);
+}
+.hero__art{
+  height: clamp(200px, 28vw, 260px);
+  border-radius: 16px;
+  border: 1px solid var(--wl-border);
+  background:
+    radial-gradient(60% 80% at 70% 30%, color-mix(in oklab, var(--color-light-blue) 35%, transparent) , transparent),
+    linear-gradient(180deg, #101114, #0b0c0e);
+  position: relative; overflow:hidden;
+}
+.hero__art::after{
+  content:"";
+  position:absolute; inset:-25%;
+  background: radial-gradient(50% 50% at 20% 50%, color-mix(in oklab, var(--color-dark-orange) 40%, transparent), transparent);
+  filter: blur(30px);
+}
+@media (max-width: 900px){ .hero{ grid-template-columns: 1fr; } }
+
+.kpis{ display:grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.kpi{
+  text-align:center;
+  background:#0f0f13;
+  border:1px solid var(--wl-border);
+  border-radius: 12px;
+  padding: .7rem;
+}
+.kpi .num{
+  font-family: var(--font-title);
+  color: var(--color-dark-orange);
+  font-size: clamp(1.4rem, 1rem + 2vw, 2rem);
+  line-height:1;
+}
+.kpi .lbl{
+  margin-top:.25rem;
+  color: var(--wl-muted);
+  font: 500 var(--step--1)/1.2 var(--font-body);
+}
+@media (max-width: 640px){ .kpis{ grid-template-columns: 1fr; } }
+
+
+/* ================================
+   Protocols: PDF overlay
+   ================================ 
+
+.overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 3vw, 24px);
+  z-index: 1000;
+}
+.overlay__panel{
+  width: min(1200px, 96vw);
+  height: min(85vh, 900px);
+  background: #0a0a0c;
+  border: 1px solid var(--wl-border);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: var(--wl-shadow);
+}
+.overlay__top{
+  display:flex; align-items:center; justify-content:space-between;
+  gap: 1rem; padding: .6rem .9rem;
+  border-bottom: 1px solid var(--wl-border);
+  background: #0f0f12;
+}
+.overlay__content{ flex:1; overflow:auto; }
+.overlay__content iframe{ width:100%; height:100%; border:0; }
+
+/* ================================
+   Notebook (left TOC, right content)
+   ================================ 
+
+.notebook{
+  display:grid;
+  grid-template-columns: 260px 1fr;
+  gap: clamp(12px, 2.4vw, 18px);
+}
+.toc{
+  position: sticky; top: 86px; 
+  align-self: start;
+  background: #0f0f12;
+  border: 1px solid var(--wl-border);
+  border-radius: 14px;
+  padding: .8rem;
+}
+.toc a{
+  display:block;
+  padding:.55rem .65rem;
+  border-radius: 8px;
+  color: var(--wl-muted);
+}
+.toc a:hover{ background:#16161a; color: var(--color-whitish); }
+.entry{
+  background:#0f0f12;
+  border:1px solid var(--wl-border);
+  border-radius:14px;
+  padding: clamp(12px, 2.2vw, 18px);
+}
+@media (max-width: 980px){
+  .notebook{ grid-template-columns: 1fr; }
+  .toc{ position: static; }
+}
+
+
+/* ================================
+   Results accordion
+   ================================ */
+
+.accordion{ display:grid; gap: 10px; }
+.accordion__item{
+  border:1px solid var(--wl-border);
+  border-radius: 12px;
+  background: #0f0f12;
+  overflow: hidden;
+}
+.accordion__head{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: .9rem 1rem;
+  cursor: pointer;
+}
+.accordion__head:hover{ background:#141419; }
+.accordion__body{ height: 0; overflow: hidden; }
+.accordion__content{ padding: 0 1rem 1rem; }
+
+/* Make sure images inside content look nice */
+.accordion__content .grid{ margin-top: .6rem; }
+
+/* ================================
+   Tables (Parts page)
+   ================================ */
+
+.table-wetlab{
+  width:100%; border-collapse: collapse;
+  font-family: var(--font-body);
+}
+.table-wetlab th,
+.table-wetlab td{
+  text-align:left;
+  padding: .65rem .7rem;
+  border-bottom: 1px solid var(--wl-border);
+}
+.table-wetlab thead th{
+  color: var(--wl-muted);
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+/* ================================
+   Small utilities
+   ================================ */
+
+.muted{ color: var(--wl-muted); }
+.code{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: var(--step--1);
+  color: var(--color-light-blue);
+  background: #0b0b0d;
+  border: 1px solid var(--wl-border);
+  padding: .1rem .35rem;
+  border-radius: 6px;
+}
+
+
+/* --- Make pages start below the fixed navbar --- */
+.page-under-nav {
+  /* navbar = 90px + its gradient tail (~30px) + a little breathing room */
+  padding-top: 100px;
+}
+
+/* if you prefer margin instead of padding on the first block: */
+.page-under-nav > .section:first-child {
+  margin-top: 0;
+}
+
+/* Initial state for entrance animation (safe fallback if JS is slow) */
+.wl-fade-in {
+  opacity: 0;
+  transform: translateY(14px);
+  will-change: transform, opacity;
+}
+
+/* Chevron affordance for PDF viewers and protocol cards */
+.protocol-chevron,
+.wetlab-pdf-chevron {
+  display: inline-block;
+  font-size: 0.9rem;
+  line-height: 1;
+  transition: transform 200ms ease, opacity 200ms ease;
+  opacity: 0.95;
+}
+
+.protocol-card:hover .protocol-chevron,
+.protocol-card:focus-within .protocol-chevron,
+.pdf-toggle-button:hover .wetlab-pdf-chevron,
+.pdf-toggle-button[aria-pressed="true"] .wetlab-pdf-chevron {
+  transform: rotate(-180deg);
+  opacity: 1;
+}
+
+
+/* ==== Lab POV horizontal slider ==== */
+.pov{
+  position: relative;
+  margin-top: 18px;
+  padding: 0 clamp(16px, 4vw, 28px) 24px;
+}
+.pov-head{
+  display: flex; align-items: end; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.pov-head .title{ margin-right: auto; }
+.pov-ctr{ margin-left: auto; display:flex; gap: 8px; }
+.pov-btn{
+  appearance:none; border:1px solid rgba(182,227,210,.18);
+  background: #0e0f12; color: var(--color-whitish);
+  border-radius: 10px; width: 40px; height: 40px; font-size: 20px;
+  cursor: pointer;
+}
+.pov-btn:hover{ background:#14161a; }
+.pov-btn:active{ transform: translateY(1px); }
+
+/* horizontal rail with snap */
+.pov-rail{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: clamp(260px, 40vw, 420px);
+  gap: 16px;
+
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 6px;
+}
+.pov-rail:focus{ outline: none; }
+
+.pov-card{
+  scroll-snap-align: start;
+  border: 1px solid rgba(182,227,210,.14);
+  border-radius: 16px;
+  background: #101114;
+  overflow: hidden;
+}
+.pov-card img{
+  width: 100%; height: clamp(180px, 28vw, 280px); object-fit: cover; display: block;
+}
+.pov-card .caption{
+  padding: 10px 12px; color: rgba(250,250,246,.9);
+}
+
+/* edge fades */
+.pov-fade{
+  position:absolute; top: 80px; bottom: 34px; width: 80px; pointer-events:none;
+  background: linear-gradient(to right, rgba(0,0,0,.85), transparent);
+}
+.pov-fade.right{
+  right: 0; background: linear-gradient(to left, rgba(0,0,0,.85), transparent);
+}
+.pov-fade.left{
+  left: 0; background: linear-gradient(to right, rgba(0,0,0,.85), transparent);
+}
+
+
+/* small screens: slightly larger cards */
+@media (max-width: 640px){
+  .pov-rail{ grid-auto-columns: 78vw; }
+}
+
+
+

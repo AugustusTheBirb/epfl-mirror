@@ -1,0 +1,168 @@
+
+
+.drone-overview-nav {
+  text-align: center;
+  margin-top: 4rem;
+  padding-inline: 1rem;
+}
+
+.drone-nav-buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.drone-button {
+  background: var(--color-light-blue);
+  color: var(--color-dark-blue);
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  border-radius: 28px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.drone-button:hover {
+  background: var(--color-dark-blue);
+  color: white;
+}
+
+.drone-container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.drone-hero {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  background-image: url('https://static.igem.wiki/teams/5590/assets-drone/screenshot-2025-09-18-at-16-18-20.webp'); 
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drone-overlay {
+  background: rgba(0, 114, 124, 0.6); /* dark overlay */
+  padding: 3rem 2rem;
+  max-width: 800px;
+  text-align: center;
+}
+
+.drone-title {
+  font-size: 3rem;
+  color: var(--color-dark-orange); 
+  font-weight: 700;
+  text-shadow: 2px 2px black;
+}
+
+.drone-description {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  line-height: 1.6;
+  color: var(--color-light-orange);
+}
+
+.explore-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.explore-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--color-light-green);
+  color: black;
+  padding: 1rem 1.5rem;
+  border-radius: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s;
+  width: 160px;
+  text-align: center;
+}
+
+.explore-btn:hover {
+  transform: scale(1.05);
+}
+
+.explore-btn img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.drone-nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.drone-nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.drone-card {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 1rem;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease;
+}
+
+.drone-card:hover {
+  transform: scale(1.05);
+}
+
+.drone-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.drone-label {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 0.1rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--color-light-blue);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: left;
+  letter-spacing: 0.05em;
+}
+
+.drone-card:hover {
+  transform: scale(1.1);
+}
+
+.drone-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
